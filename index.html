@@ -1,48 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meine App – Offizielle Website</title>
+  <meta name="description" content="Kurze Demo-GIFs und Funktionen der App auf einer Seite." />
+  <meta property="og:title" content="Meine App – Offizielle Website" />
+  <meta property="og:description" content="Kurze Demo-GIFs und Funktionen der App auf einer Seite." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="favicon.ico" />
+  <!-- Tailwind per CDN (kein Build nötig) -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="font-sans bg-gray-50 text-gray-900">
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <!-- DISCLAIMER / HINWEIS-BANNER -->
+  <div id="banner" class="w-full bg-amber-50 border-b border-amber-200 text-amber-900">
+    <div class="max-w-6xl mx-auto px-4 py-2 flex items-start md:items-center gap-3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 shrink-0 mt-0.5 md:mt-0">
+        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM9 7a1 1 0 112 0 1 1 0 01-2 0zm2 2a1 1 0 10-2 0v4a1 1 0 102 0V9z" clip-rule="evenodd" />
+      </svg>
+      <p class="text-sm">Hinweis: Diese Seite zeigt kurze Demos der App. Funktionen, Design und Verfügbarkeit können sich noch ändern.</p>
+      <button aria-label="Banner schließen" class="ml-auto text-amber-900/70 hover:text-amber-900" onclick="document.getElementById('banner').remove()">✕</button>
+    </div>
+  </div>
 
-  <!-- Hero -->
-  <section class="min-h-screen flex flex-col items-center justify-center text-center p-8">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">My App</h1>
-    <p class="text-lg md:text-2xl mb-6">The easiest way to [solve your problem]</p>
-    <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow hover:bg-blue-700">
-      Download Now
-    </a>
+  <!-- STICKY KOPFZEILE -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="font-semibold">Meine App</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm text-gray-600">
+        <a href="#features" class="hover:text-gray-900">Funktionen</a>
+        <a href="#download" class="hover:text-gray-900">Download</a>
+      </nav>
+      <a id="download" href="https://github.com/Y-Robin/TP_website" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-xl bg-sky-600 px-4 py-2 text-white shadow hover:bg-sky-700">
+        Download
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
+          <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h6a1 1 0 010 2H5v10h10V10a1 1 0 112 0v5a1 1 0 01-1 1H4a1 1 0 01-1-1V3zm11.293-.707a1 1 0 011.414 0l3 3a1 1 0 11-1.414 1.414L15 5.414V9a1 1 0 11-2 0V3a1 1 0 011-1h.293z" clip-rule="evenodd" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="max-w-6xl mx-auto px-4 pt-12 pb-8 md:pt-16 md:pb-12">
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Alles Wichtige auf einen Blick</h1>
+      <p class="mt-4 text-lg text-gray-600">Eine einfache Seite mit kurzen GIF-Demos, die die wichtigsten Funktionen deiner App zeigen.</p>
+      <div class="mt-6 flex items-center justify-center gap-3">
+        <a href="https://github.com/Y-Robin/TP_website" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-sky-600 px-6 py-3 text-white shadow hover:bg-sky-700">Jetzt herunterladen</a>
+        <a href="#features" class="rounded-xl border border-gray-300 px-6 py-3 text-gray-700 hover:bg-gray-100">Demos ansehen</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Feature 1 -->
-  <section class="flex flex-col md:flex-row items-center justify-between px-8 py-20 max-w-6xl mx-auto">
-    <div class="md:w-1/2 mb-8 md:mb-0">
-      <h2 class="text-2xl font-semibold mb-4">Feature One</h2>
-      <p class="text-gray-700">Short description of this feature and why it’s awesome.</p>
-    </div>
-    <div class="md:w-1/2">
-      <img src="demo1.gif" alt="Feature one demo" class="rounded-lg shadow">
+  <!-- FEATURE-SEKTIONEN -->
+  <section id="features" class="max-w-6xl mx-auto px-4 pb-20">
+    <!-- Feature 1 -->
+    <section id="feature-1" class="py-12 md:py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 1 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">Kurze Beschreibung, was dieses Feature macht und welchen Nutzen es hat. Halte es in 1–2 Sätzen.</p>
+        </div>
+        <div class="relative">
+          <img src="GIF/Start_App.gif" alt="Demo zu Feature 1" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 2 -->
+    <section id="feature-2" class="py-12 md:py-16 bg-white">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1 relative">
+          <img src="GIF/Add_Arzt.gif" alt="Demo zu Feature 2" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 2 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">Ein Satz zur Erklärung. Alterniere Bild/Text, damit die Seite lebendiger wirkt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 3 -->
+    <section id="feature-3" class="py-12 md:py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 3 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">Was sieht die Nutzerin hier? Welches Problem wird gelöst?</p>
+        </div>
+        <div class="relative">
+          <img src="GIF/Arzt_Detail.gif" alt="Demo zu Feature 3" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 4 -->
+    <section id="feature-4" class="py-12 md:py-16 bg-white">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1 relative">
+          <img src="GIF/Transcript.gif" alt="Demo zu Feature 4" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 4 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">Kurzer Nutzenfokus. Max. zwei Sätze, damit es scannbar bleibt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 5 -->
+    <section id="feature-5" class="py-12 md:py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 5 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">Optional kannst du auch ein kurzes Beispiel nennen.</p>
+        </div>
+        <div class="relative">
+          <img src="GIF/Termin.gif" alt="Demo zu Feature 5" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 6 -->
+    <section id="feature-6" class="py-12 md:py-16 bg-white">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1 relative">
+          <img src="GIF/Medikamente.gif" alt="Demo zu Feature 6" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 6 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">Kurzer, konkreter Benefit. Was spart man? Was wird einfacher?</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 7 -->
+    <section id="feature-7" class="py-12 md:py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 7 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">1–2 Sätze Erklärung.</p>
+        </div>
+        <div class="relative">
+          <img src="GIF/Medikamente_Alarm.gif" alt="Demo zu Feature 7" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 8 -->
+    <section id="feature-8" class="py-12 md:py-16 bg-white">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1 relative">
+          <img src="GIF/Settings.gif" alt="Demo zu Feature 8" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+        <div class="order-1 md:order-2">
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 8 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">Noch ein kurzer Nutzenhinweis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 9 -->
+    <section id="feature-9" class="py-12 md:py-16">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-semibold">Feature 9 – Kurztitel</h2>
+          <p class="mt-3 text-gray-600">Schließe mit einem Highlight oder „Wow“-Moment ab.</p>
+        </div>
+        <div class="relative">
+          <img src="GIF/Chat.gif" alt="Demo zu Feature 9" class="w-full rounded-2xl shadow" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Call-to-Action unten -->
+    <div class="mt-8 text-center">
+      <a href="https://github.com/Y-Robin/TP_website" target="_blank" rel="noopener noreferrer" class="inline-block rounded-2xl bg-sky-600 px-8 py-4 text-white shadow hover:bg-sky-700">Kostenlos testen</a>
+      <p class="mt-3 text-sm text-gray-500">Externer Link – führt zu einer anderen Website.</p>
     </div>
   </section>
 
-  <!-- Feature 2 -->
-  <section class="flex flex-col md:flex-row-reverse items-center justify-between px-8 py-20 max-w-6xl mx-auto bg-gray-100">
-    <div class="md:w-1/2 mb-8 md:mb-0">
-      <h2 class="text-2xl font-semibold mb-4">Feature Two</h2>
-      <p class="text-gray-700">Another feature description. Keep it short and clear.</p>
+  <!-- FOOTER -->
+  <footer class="border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-gray-600 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>© <span id="year"></span> Meine App</p>
+      <div class="flex items-center gap-4">
+        <a href="#top" class="hover:underline">Nach oben</a>
+        <a href="mailto:Yannick.Robin@web.de" class="hover:underline">Kontakt</a>
+        <a href="#" class="hover:underline">Datenschutz</a>
+      </div>
     </div>
-    <div class="md:w-1/2">
-      <img src="demo2.gif" alt="Feature two demo" class="rounded-lg shadow">
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center py-10 bg-gray-200 text-gray-600">
-    <p>© 2025 My App · <a href="#" class="underline">Privacy Policy</a></p>
   </footer>
 
+  <script>
+    // Jahr automatisch setzen
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
