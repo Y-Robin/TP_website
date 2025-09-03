@@ -13,20 +13,30 @@
   <!-- Tailwind per CDN (kein Build nötig) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* Feintuning für GIF-Größe (mobil kleiner) */
+    /* *** Mobilfreundliche, kleinere GIFs ***
+       - Auf Handy sehr kompakt (max 300px)
+       - Auf Tablet etwas größer (max 380px)
+       - Auf Desktop moderat (max 480px)
+       Du kannst die Werte nach Geschmack anpassen. */
     .demo-gif {
       width: 100%;
-      max-width: 420px;      /* Mobil: kleinere Darstellung */
-      max-height: 560px;     /* verhindert „riesige“ GIFs */
+      max-width: 300px;   /* Handy */
+      max-height: 480px;
       object-fit: contain;
       margin-left: auto;
       margin-right: auto;
     }
-    @media (min-width: 768px) {
-      .demo-gif {
-        max-width: none;     /* Desktop: freie Breite innerhalb der Spalte */
-        max-height: none;
-      }
+    @media (min-width: 640px) { /* sm */
+      .demo-gif { max-width: 340px; }
+    }
+    @media (min-width: 768px) { /* md */
+      .demo-gif { max-width: 380px; max-height: 540px; }
+    }
+    @media (min-width: 1024px) { /* lg */
+      .demo-gif { max-width: 420px; }
+    }
+    @media (min-width: 1280px) { /* xl */
+      .demo-gif { max-width: 480px; }
     }
   </style>
 </head>
@@ -68,11 +78,11 @@
       <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Alles Wichtige auf einen Blick</h1>
       <p class="mt-4 text-base md:text-lg text-gray-600">
         Diese Seite zeigt die Funktionen der <strong>TP App</strong>. TP richtet sich an Patient*innen und soll den Alltag vereinfachen:
-        Arztbriefe, Medikamente, Arztgespräche und Befunde an einem Ort sammeln, Arztbesuche organisieren und per Medikamenten-Wecker an die Einnahme erinnern.
-        Das Herzstück ist die OpenAI-Integration, mit der deine Informationen gebündelt mit ChatGPT analysiert werden können.
+        Arztbriefe, Medikamente, Arztgespräche und Befunde an einem Ort sammeln, Arztbesuche organisieren und per Medikamenten‑Wecker an die Einnahme erinnern.
+        Das Herzstück ist die OpenAI‑Integration, mit der deine Informationen gebündelt mit ChatGPT analysiert werden können.
         <br><br>
         Die App befindet sich aktuell in der Entwicklung. Du bist selbst für die Daten verantwortlich, die du übermittelst.
-        Der Chat und die Transkription laufen derzeit über die OpenAI-API, alle anderen Daten werden lokal gespeichert.
+        Der Chat und die Transkription laufen derzeit über die OpenAI‑API, alle anderen Daten werden lokal gespeichert.
         Da wir uns im Entwicklungsstadium befinden, ist die Anzahl der Anfragen begrenzt.
         Für unlimitierten Zugriff kontaktiere bitte <a href="mailto:Yannick.Robin@web.de" class="underline">Yannick.Robin@web.de</a>.
       </p>
@@ -87,25 +97,25 @@
   <section id="features" class="max-w-6xl mx-auto px-3 sm:px-4 pb-16 md:pb-20">
     <!-- Feature 1 -->
     <section id="feature-1" class="py-8 md:py-14">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
         <div>
           <h2 class="text-2xl md:text-3xl font-semibold">Start der TP App</h2>
           <p class="mt-3 text-gray-600">
-            Beim ersten Start fragt die App nach der Berechtigung für Benachrichtigungen (erforderlich für den Medikamenten-Wecker).
-            Außerdem legst du einen Standard-Patienten mit Name und Geburtstag an.
+            Beim ersten Start fragt die App nach der Berechtigung für Benachrichtigungen (erforderlich für den Medikamenten‑Wecker).
+            Außerdem legst du einen Standard‑Patienten mit Name und Geburtstag an.
           </p>
         </div>
-        <div class="relative">
-          <img src="GIF/Start_App.gif" alt="App-Start mit Berechtigungen und Patient anlegen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
+        <div class="relative flex justify-center">
+          <img src="GIF/Start_App.gif" alt="App‑Start mit Berechtigungen und Patient anlegen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- Feature 2 -->
     <section id="feature-2" class="py-8 md:py-14 bg-white">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="order-2 md:order-1 relative">
-          <img src="GIF/Add_Arzt.gif" alt="Ärzte zur Übersicht hinzufügen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div class="order-2 md:order-1 relative flex justify-center">
+          <img src="GIF/Add_Arzt.gif" alt="Ärzt*innen zur Übersicht hinzufügen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
         <div class="order-1 md:order-2">
           <h2 class="text-2xl md:text-3xl font-semibold">Ärzt*innen hinzufügen</h2>
@@ -118,24 +128,24 @@
 
     <!-- Feature 3 -->
     <section id="feature-3" class="py-8 md:py-14">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
         <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">Arzt-Details & Transkripte</h2>
+          <h2 class="text-2xl md:text-3xl font-semibold">Arzt‑Details & Transkripte</h2>
           <p class="mt-3 text-gray-600">
-            Tippe auf einen Arzt, um dessen Bereich zu öffnen. Dort siehst du deine Transkripte (z. B. Arztbriefe, Untersuchungen).
+            Tippe auf einen Arzt, um dessen Bereich zu öffnen. Dort siehst du deine Transkripte (z. B. Arztbriefe, Untersuchungen).
             Neue Transkripte legst du oben rechts an: PDF hochladen, manuell erfassen oder ein Foto machen – alles später bearbeitbar.
           </p>
         </div>
-        <div class="relative">
-          <img src="GIF/Arzt_Detail.gif" alt="Arzt-Detailseite mit Transkripten" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
+        <div class="relative flex justify-center">
+          <img src="GIF/Arzt_Detail.gif" alt="Arzt‑Detailseite mit Transkripten" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- Feature 4 -->
     <section id="feature-4" class="py-8 md:py-14 bg-white">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="order-2 md:order-1 relative">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div class="order-2 md:order-1 relative flex justify-center">
           <img src="GIF/Transcript.gif" alt="Gespräche aufnehmen und transkribieren" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
         <div class="order-1 md:order-2">
@@ -149,14 +159,14 @@
 
     <!-- Feature 5 -->
     <section id="feature-5" class="py-8 md:py-14">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
         <div>
           <h2 class="text-2xl md:text-3xl font-semibold">Terminkalender</h2>
           <p class="mt-3 text-gray-600">
             Der integrierte Kalender funktioniert, wie du es gewohnt bist – übersichtlich und schnell.
           </p>
         </div>
-        <div class="relative">
+        <div class="relative flex justify-center">
           <img src="GIF/Termin.gif" alt="Termine im integrierten Kalender" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
@@ -164,8 +174,8 @@
 
     <!-- Feature 6 -->
     <section id="feature-6" class="py-8 md:py-14 bg-white">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="order-2 md:order-1 relative">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div class="order-2 md:order-1 relative flex justify-center">
           <img src="GIF/Medikamente.gif" alt="Medikamente hinzufügen und verwalten" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
         <div class="order-1 md:order-2">
@@ -180,25 +190,25 @@
 
     <!-- Feature 7 -->
     <section id="feature-7" class="py-8 md:py-14">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
         <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">Medikamenten-Wecker</h2>
+          <h2 class="text-2xl md:text-3xl font-semibold">Medikamenten‑Wecker</h2>
           <p class="mt-3 text-gray-600">
             Lege Uhrzeit, Dauer und Intervall (Abstand in Tagen) fest. Wenn in den Einstellungen der Erinnerungstyp „Wecker“ gewählt ist,
-            klingelt die App zuverlässig – unabhängig von den System-Benachrichtigungseinstellungen.
+            klingelt die App zuverlässig – unabhängig von den System‑Benachrichtigungseinstellungen.
           </p>
         </div>
-        <div class="relative">
-          <img src="GIF/Medikamente_Alarm.gif" alt="Medikamenten-Wecker anlegen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
+        <div class="relative flex justify-center">
+          <img src="GIF/Medikamente_Alarm.gif" alt="Medikamenten‑Wecker anlegen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- Feature 8 -->
     <section id="feature-8" class="py-8 md:py-14 bg-white">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div class="order-2 md:order-1 relative">
-          <img src="GIF/Settings.gif" alt="App-Einstellungen, Dark Mode und mehrere Patienten" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div class="order-2 md:order-1 relative flex justify-center">
+          <img src="GIF/Settings.gif" alt="App‑Einstellungen, Dark Mode und mehrere Patient*innen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
         <div class="order-1 md:order-2">
           <h2 class="text-2xl md:text-3xl font-semibold">Einstellungen</h2>
@@ -211,7 +221,7 @@
 
     <!-- Feature 9 -->
     <section id="feature-9" class="py-8 md:py-14">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
         <div>
           <h2 class="text-2xl md:text-3xl font-semibold">Chat & Analyse mit OpenAI</h2>
           <p class="mt-3 text-gray-600">
@@ -219,8 +229,8 @@
             Hinweis: Das Öffnen des Chats kann etwas dauern, da zunächst eine Zusammenfassung deiner Daten erzeugt wird.
           </p>
         </div>
-        <div class="relative">
-          <img src="GIF/Chat.gif" alt="Chat-Ansicht mit Analyse" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
+        <div class="relative flex justify-center">
+          <img src="GIF/Chat.gif" alt="Chat‑Ansicht mit Analyse" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
