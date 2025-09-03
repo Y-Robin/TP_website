@@ -3,32 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meine App – Offizielle Website</title>
-  <meta name="description" content="Kurze Demo-GIFs und Funktionen der App auf einer Seite." />
-  <meta property="og:title" content="Meine App – Offizielle Website" />
-  <meta property="og:description" content="Kurze Demo-GIFs und Funktionen der App auf einer Seite." />
+  <title>TP App – Offizielle Website</title>
+  <meta name="description" content="Eine Seite mit kurzen GIF-Demos, die die wichtigsten Funktionen der TP App zeigen." />
+  <meta property="og:title" content="TP App – Offizielle Website" />
+  <meta property="og:description" content="GIF-Demos zu Start, Ärzte, Transkripte, Termine, Medikamente, Wecker, Einstellungen und Chat/Analyse." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0ea5e9" />
   <link rel="icon" href="favicon.ico" />
   <!-- Tailwind per CDN (kein Build nötig) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Feintuning für GIF-Größe (mobil kleiner) */
+    .demo-gif {
+      width: 100%;
+      max-width: 420px;      /* Mobil: kleinere Darstellung */
+      max-height: 560px;     /* verhindert „riesige“ GIFs */
+      object-fit: contain;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (min-width: 768px) {
+      .demo-gif {
+        max-width: none;     /* Desktop: freie Breite innerhalb der Spalte */
+        max-height: none;
+      }
+    }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased">
   <!-- DISCLAIMER / HINWEIS-BANNER -->
   <div id="banner" class="w-full bg-amber-50 border-b border-amber-200 text-amber-900">
-    <div class="max-w-6xl mx-auto px-4 py-2 flex items-start md:items-center gap-3">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-2 flex items-start md:items-center gap-3">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 shrink-0 mt-0.5 md:mt-0">
         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM9 7a1 1 0 112 0 1 1 0 01-2 0zm2 2a1 1 0 10-2 0v4a1 1 0 102 0V9z" clip-rule="evenodd" />
       </svg>
-      <p class="text-sm">Hinweis: Diese Seite zeigt kurze Demos der App. Funktionen, Design und Verfügbarkeit können sich noch ändern.</p>
+      <p class="text-sm">
+        Hinweis: Diese Seite zeigt kurze Demos der App. Funktionen, Design und Verfügbarkeit können sich noch ändern.
+        Die Chat-Funktion und Transkription (Fotos, Audio usw.) erfolgen derzeit über die OpenAI-API. Ansonsten werden Daten lokal gespeichert.
+      </p>
       <button aria-label="Banner schließen" class="ml-auto text-amber-900/70 hover:text-amber-900" onclick="document.getElementById('banner').remove()">✕</button>
     </div>
   </div>
 
   <!-- STICKY KOPFZEILE -->
   <header class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#top" class="font-semibold">Meine App</a>
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-3 flex items-center justify-between">
+      <a href="#top" class="font-semibold">TP App</a>
       <nav class="hidden md:flex items-center gap-6 text-sm text-gray-600">
         <a href="#features" class="hover:text-gray-900">Funktionen</a>
         <a href="#download" class="hover:text-gray-900">Download</a>
@@ -43,10 +63,19 @@
   </header>
 
   <!-- HERO -->
-  <section id="top" class="max-w-6xl mx-auto px-4 pt-12 pb-8 md:pt-16 md:pb-12">
+  <section id="top" class="max-w-6xl mx-auto px-3 sm:px-4 pt-10 pb-6 md:pt-16 md:pb-10">
     <div class="text-center max-w-3xl mx-auto">
       <h1 class="text-4xl md:text-6xl font-bold tracking-tight">Alles Wichtige auf einen Blick</h1>
-      <p class="mt-4 text-lg text-gray-600">Eine einfache Seite mit kurzen GIF-Demos, die die wichtigsten Funktionen deiner App zeigen.</p>
+      <p class="mt-4 text-base md:text-lg text-gray-600">
+        Diese Seite zeigt die Funktionen der <strong>TP App</strong>. TP richtet sich an Patient*innen und soll den Alltag vereinfachen:
+        Arztbriefe, Medikamente, Arztgespräche und Befunde an einem Ort sammeln, Arztbesuche organisieren und per Medikamenten-Wecker an die Einnahme erinnern.
+        Das Herzstück ist die OpenAI-Integration, mit der deine Informationen gebündelt mit ChatGPT analysiert werden können.
+        <br><br>
+        Die App befindet sich aktuell in der Entwicklung. Du bist selbst für die Daten verantwortlich, die du übermittelst.
+        Der Chat und die Transkription laufen derzeit über die OpenAI-API, alle anderen Daten werden lokal gespeichert.
+        Da wir uns im Entwicklungsstadium befinden, ist die Anzahl der Anfragen begrenzt.
+        Für unlimitierten Zugriff kontaktiere bitte <a href="mailto:Yannick.Robin@web.de" class="underline">Yannick.Robin@web.de</a>.
+      </p>
       <div class="mt-6 flex items-center justify-center gap-3">
         <a href="https://github.com/Y-Robin/TP_website" target="_blank" rel="noopener noreferrer" class="rounded-xl bg-sky-600 px-6 py-3 text-white shadow hover:bg-sky-700">Jetzt herunterladen</a>
         <a href="#features" class="rounded-xl border border-gray-300 px-6 py-3 text-gray-700 hover:bg-gray-100">Demos ansehen</a>
@@ -55,135 +84,158 @@
   </section>
 
   <!-- FEATURE-SEKTIONEN -->
-  <section id="features" class="max-w-6xl mx-auto px-4 pb-20">
+  <section id="features" class="max-w-6xl mx-auto px-3 sm:px-4 pb-16 md:pb-20">
     <!-- Feature 1 -->
-    <section id="feature-1" class="py-12 md:py-16">
+    <section id="feature-1" class="py-8 md:py-14">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 1 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">Kurze Beschreibung, was dieses Feature macht und welchen Nutzen es hat. Halte es in 1–2 Sätzen.</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Start der TP App</h2>
+          <p class="mt-3 text-gray-600">
+            Beim ersten Start fragt die App nach der Berechtigung für Benachrichtigungen (erforderlich für den Medikamenten-Wecker).
+            Außerdem legst du einen Standard-Patienten mit Name und Geburtstag an.
+          </p>
         </div>
         <div class="relative">
-          <img src="GIF/Start_App.gif" alt="Demo zu Feature 1" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Start_App.gif" alt="App-Start mit Berechtigungen und Patient anlegen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- Feature 2 -->
-    <section id="feature-2" class="py-12 md:py-16 bg-white">
+    <section id="feature-2" class="py-8 md:py-14 bg-white">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1 relative">
-          <img src="GIF/Add_Arzt.gif" alt="Demo zu Feature 2" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Add_Arzt.gif" alt="Ärzte zur Übersicht hinzufügen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
         <div class="order-1 md:order-2">
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 2 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">Ein Satz zur Erklärung. Alterniere Bild/Text, damit die Seite lebendiger wirkt.</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Ärzt*innen hinzufügen</h2>
+          <p class="mt-3 text-gray-600">
+            Nach dem Anlegen des Patienten fügst du deine behandelnden Ärzt*innen hinzu, um alles übersichtlich zu organisieren.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Feature 3 -->
-    <section id="feature-3" class="py-12 md:py-16">
+    <section id="feature-3" class="py-8 md:py-14">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 3 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">Was sieht die Nutzerin hier? Welches Problem wird gelöst?</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Arzt-Details & Transkripte</h2>
+          <p class="mt-3 text-gray-600">
+            Tippe auf einen Arzt, um dessen Bereich zu öffnen. Dort siehst du deine Transkripte (z. B. Arztbriefe, Untersuchungen).
+            Neue Transkripte legst du oben rechts an: PDF hochladen, manuell erfassen oder ein Foto machen – alles später bearbeitbar.
+          </p>
         </div>
         <div class="relative">
-          <img src="GIF/Arzt_Detail.gif" alt="Demo zu Feature 3" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Arzt_Detail.gif" alt="Arzt-Detailseite mit Transkripten" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- Feature 4 -->
-    <section id="feature-4" class="py-12 md:py-16 bg-white">
+    <section id="feature-4" class="py-8 md:py-14 bg-white">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1 relative">
-          <img src="GIF/Transcript.gif" alt="Demo zu Feature 4" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Transcript.gif" alt="Gespräche aufnehmen und transkribieren" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
         <div class="order-1 md:order-2">
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 4 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">Kurzer Nutzenfokus. Max. zwei Sätze, damit es scannbar bleibt.</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Gespräche aufnehmen & transkribieren</h2>
+          <p class="mt-3 text-gray-600">
+            Du kannst Arztgespräche aufnehmen, anschließend transkribieren und dem passenden Arzt zuordnen.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Feature 5 -->
-    <section id="feature-5" class="py-12 md:py-16">
+    <section id="feature-5" class="py-8 md:py-14">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 5 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">Optional kannst du auch ein kurzes Beispiel nennen.</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Terminkalender</h2>
+          <p class="mt-3 text-gray-600">
+            Der integrierte Kalender funktioniert, wie du es gewohnt bist – übersichtlich und schnell.
+          </p>
         </div>
         <div class="relative">
-          <img src="GIF/Termin.gif" alt="Demo zu Feature 5" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Termin.gif" alt="Termine im integrierten Kalender" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- Feature 6 -->
-    <section id="feature-6" class="py-12 md:py-16 bg-white">
+    <section id="feature-6" class="py-8 md:py-14 bg-white">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1 relative">
-          <img src="GIF/Medikamente.gif" alt="Demo zu Feature 6" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Medikamente.gif" alt="Medikamente hinzufügen und verwalten" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
         <div class="order-1 md:order-2">
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 6 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">Kurzer, konkreter Benefit. Was spart man? Was wird einfacher?</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Medikamente verwalten</h2>
+          <p class="mt-3 text-gray-600">
+            Füge Medikamente hinzu und ergänze Infos aus dem Beipackzettel – per Langdruck kannst du Daten manuell eintragen oder ein Foto hochladen.
+            Nicht mehr benötigte Präparate verschiebst du in „frühere Medikamente“.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Feature 7 -->
-    <section id="feature-7" class="py-12 md:py-16">
+    <section id="feature-7" class="py-8 md:py-14">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 7 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">1–2 Sätze Erklärung.</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Medikamenten-Wecker</h2>
+          <p class="mt-3 text-gray-600">
+            Lege Uhrzeit, Dauer und Intervall (Abstand in Tagen) fest. Wenn in den Einstellungen der Erinnerungstyp „Wecker“ gewählt ist,
+            klingelt die App zuverlässig – unabhängig von den System-Benachrichtigungseinstellungen.
+          </p>
         </div>
         <div class="relative">
-          <img src="GIF/Medikamente_Alarm.gif" alt="Demo zu Feature 7" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Medikamente_Alarm.gif" alt="Medikamenten-Wecker anlegen" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- Feature 8 -->
-    <section id="feature-8" class="py-12 md:py-16 bg-white">
+    <section id="feature-8" class="py-8 md:py-14 bg-white">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="order-2 md:order-1 relative">
-          <img src="GIF/Settings.gif" alt="Demo zu Feature 8" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Settings.gif" alt="App-Einstellungen, Dark Mode und mehrere Patienten" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
         <div class="order-1 md:order-2">
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 8 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">Noch ein kurzer Nutzenhinweis.</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Einstellungen</h2>
+          <p class="mt-3 text-gray-600">
+            Aktiviere das dunkle Design, ändere den Erinnerungstyp und füge weitere Patient*innen hinzu, wenn du die App für mehrere Personen nutzt.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- Feature 9 -->
-    <section id="feature-9" class="py-12 md:py-16">
+    <section id="feature-9" class="py-8 md:py-14">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 class="text-2xl md:text-3xl font-semibold">Feature 9 – Kurztitel</h2>
-          <p class="mt-3 text-gray-600">Schließe mit einem Highlight oder „Wow“-Moment ab.</p>
+          <h2 class="text-2xl md:text-3xl font-semibold">Chat & Analyse mit OpenAI</h2>
+          <p class="mt-3 text-gray-600">
+            Das Herzstück der App: Analysiere deine gesammelten Daten im Chat mit OpenAI.
+            Hinweis: Das Öffnen des Chats kann etwas dauern, da zunächst eine Zusammenfassung deiner Daten erzeugt wird.
+          </p>
         </div>
         <div class="relative">
-          <img src="GIF/Chat.gif" alt="Demo zu Feature 9" class="w-full rounded-2xl shadow" loading="lazy" />
+          <img src="GIF/Chat.gif" alt="Chat-Ansicht mit Analyse" class="demo-gif rounded-2xl shadow" loading="lazy" decoding="async" />
         </div>
       </div>
     </section>
 
     <!-- Call-to-Action unten -->
-    <div class="mt-8 text-center">
-      <a href="https://github.com/Y-Robin/TP_website" target="_blank" rel="noopener noreferrer" class="inline-block rounded-2xl bg-sky-600 px-8 py-4 text-white shadow hover:bg-sky-700">Kostenlos testen</a>
-      <p class="mt-3 text-sm text-gray-500">Externer Link – führt zu einer anderen Website.</p>
+    <div class="mt-6 md:mt-8 text-center">
+      <a href="https://github.com/Y-Robin/TP_website" target="_blank" rel="noopener noreferrer" class="inline-block rounded-2xl bg-sky-600 px-6 py-3 md:px-8 md:py-4 text-white shadow hover:bg-sky-700">Kostenlos testen</a>
+      <p class="mt-3 text-sm text-gray-500">Externer Link – führt zu GitHub. Dort bitte erneut auf „Download“ klicken.</p>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="border-t border-gray-200">
-    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-gray-600 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p>© <span id="year"></span> Meine App</p>
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-8 md:py-10 text-sm text-gray-600 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>© <span id="year"></span> TP App</p>
       <div class="flex items-center gap-4">
         <a href="#top" class="hover:underline">Nach oben</a>
         <a href="mailto:Yannick.Robin@web.de" class="hover:underline">Kontakt</a>
