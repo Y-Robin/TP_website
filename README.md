@@ -1,7 +1,14 @@
-# TP App
+# MAIA – Medical AI Assistant
 
-Die **TP App** richtet sich an Patient*innen und soll den Alltag im Umgang mit Gesundheit vereinfachen.  
+**MAIA (Medical AI Assistant)** richtet sich an Patient*innen und soll den Alltag im Umgang mit Gesundheit vereinfachen.  
 Sie bietet die Möglichkeit, wichtige Informationen an einem Ort zu sammeln und zu organisieren.
+
+## MAIA v0.02 – Updates
+- Umbenennung auf **MAIA – Medical AI Assistant**.  
+- Alarm löst jetzt zuverlässig auch nach einem Neustart aus.  
+- Spracheinstellungen verbessert.  
+- Neuer Troubleshooting‑Guide.  
+- Verbesserte Chatbot‑Qualität.  
 
 ## Hauptfunktionen
 - **Dokumente & Befunde verwalten**  
