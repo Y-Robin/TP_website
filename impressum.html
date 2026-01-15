@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impressum – MAIA</title>
+  <meta name="description" content="Impressum der MAIA Demo-Seite." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="favicon.ico" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased">
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-3 flex items-center justify-between gap-4">
+      <a href="index.html" class="font-semibold">MAIA – Medical AI Assistant</a>
+      <nav class="flex items-center gap-4 text-sm text-gray-600">
+        <a href="index.html#features" class="hover:text-gray-900">Funktionen</a>
+        <a href="index.html#download" class="hover:text-gray-900">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-3 sm:px-4 py-10 md:py-14">
+    <h1 class="text-3xl md:text-4xl font-bold">Impressum</h1>
+
+    <section class="mt-6 space-y-2 text-gray-700">
+      <h2 class="text-xl font-semibold">Angaben gemäß § 5 DDG</h2>
+      <p class="mt-2">Yannick Robin<br />
+        Ockfener Straße 1<br />
+        54439 Saarburg<br />
+        Deutschland</p>
+      <p>E-Mail: <a href="mailto:Yannick.Robin@web.de" class="underline">Yannick.Robin@web.de</a></p>
+      <p>Kein Handelsregistereintrag, keine Umsatzsteuer-ID vorhanden (Demo/Privatprojekt).</p>
+    </section>
+
+    <section class="mt-8 space-y-2 text-gray-700">
+      <h2 class="text-xl font-semibold">Haftungsausschluss</h2>
+      <p>
+        Die Inhalte dieser Website wurden mit Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität
+        der Inhalte kann jedoch keine Gewähr übernommen werden. Externe Links wurden zum Zeitpunkt der Verlinkung
+        geprüft; auf deren Inhalte besteht kein Einfluss.
+      </p>
+    </section>
+
+    <section class="mt-8 space-y-2 text-gray-700">
+      <h2 class="text-xl font-semibold">Urheberrecht</h2>
+      <p>
+        Die auf dieser Website veröffentlichten Inhalte unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind
+        als solche gekennzeichnet. Eine Vervielfältigung, Bearbeitung, Verbreitung oder Verwertung bedarf der vorherigen
+        schriftlichen Zustimmung des jeweiligen Rechteinhabers.
+      </p>
+    </section>
+  </main>
+
+  <footer class="border-t border-gray-200">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 py-8 md:py-10 text-sm text-gray-600 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>© <span id="year"></span> MAIA – Medical AI Assistant</p>
+      <div class="flex items-center gap-4">
+        <a href="index.html#top" class="hover:underline">Nach oben</a>
+        <a href="mailto:Yannick.Robin@web.de" class="hover:underline">Kontakt</a>
+        <a href="impressum.html" class="hover:underline">Impressum</a>
+        <a href="datenschutz.html" class="hover:underline">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
+  </script>
+</body>
+</html>
